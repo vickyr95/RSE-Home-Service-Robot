@@ -15,6 +15,22 @@
   - write a home_service.sh file that will run all the nodes in this project.
   - write a add_marker.sh file that will publish a marker to rviz. Initially show the marker at the pickup zone. Hide the marker once your robot reach the pickup zone. Wait 5 seconds to simulate a pickup. Show the marker at the drop off zone once your robot reaches it.
 
+## Project Home Service Bot Demo
+![RSE-Project](https://github.com/user-attachments/assets/7b16a544-79bd-4ae7-a1a0-8cf277a7ac2c)
+
+### To run this project
+
+* Clone this repository.
+```
+git clone https://github.com/vickyr95/RSE-Home-Service-Robot.git
+```
+* Clone the below dependencies. If the turtlebot packages doesnt build delete the turtlebot packages from the catkin_ws, clone the below packages for your ros distro and try to build it. change the melodic-devel to match your distro
+```
+git clone https://github.com/ros-perception/slam_gmapping.git
+git clone -b melodic-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+git clone -b melodic-devel https://github.com/ROBOTIS-GIT/turtlebot3.git
+git clone -b melodic-devel https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+```
 ## Packages and Directories Structure
     catkin_ws/src/
     ├── CMakeLists.txt
@@ -53,16 +69,7 @@
     │   └── turtlebot3_teleop
     ├── turtlebot3_msgs						          # turtlebot ros packages
     └── turtlebot3_simulations				      # turtlebot ros packages
-
-  ## Project Home Service Bot Demo
-![RSE-Project](https://github.com/user-attachments/assets/7b16a544-79bd-4ae7-a1a0-8cf277a7ac2c)
-
-### To run this project
-
-* Clone this repository.
-```
-git clone https://github.com/vickyr95/RSE-Home-Service-Robot.git
-```
+    
 * Navigate to catkin_ws workspace and build it.
 ```
 cd ~/catkin_ws/ && catkin_make
