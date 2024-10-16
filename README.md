@@ -54,4 +54,56 @@
     ├── turtlebot3_msgs						          # turtlebot ros packages
     └── turtlebot3_simulations				      # turtlebot ros packages
 
-  
+  ## Project Home Service Bot Demo
+![RSE-Project](https://github.com/user-attachments/assets/7b16a544-79bd-4ae7-a1a0-8cf277a7ac2c)
+
+### To run this project
+
+* Clone this repository.
+```
+git clone https://github.com/vickyr95/RSE-Home-Service-Robot.git
+```
+* Navigate to catkin_ws workspace and build it.
+```
+cd ~/catkin_ws/ && catkin_make
+```
+* Source the workspace. 
+```
+source devel/setup.bash
+```
+* If the turtlebot packags doesnt build delete the turtlebot packages from the catkin_ws, clone the below packages for your ros distro and try to build it. change the melodic-devel to match your distro
+```
+git clone -b melodic-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+git clone -b melodic-devel https://github.com/ROBOTIS-GIT/turtlebot3.git
+git clone -b melodic-devel https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+```
+* Turn python and shell scripts to executable.
+```
+chmod +x catkin_ws/src/my_robot/scripts/*
+```
+* Navigate to scripts directory and run the scripts.
+* to test slam run below script and use teleop terminal to move the robot around the world to generate map.
+```
+./test_slam.sh
+```
+* once you complete generating total environment save the map with the below command in a separate terminal.
+```
+rosrun map_server map_saver -f catkin_ws/src/my_robot/maps/map
+```
+* to test navigation run below script and use 2D Nav goal in Rviz to check go to goal function.
+```
+./test_navigation.sh
+```
+* to send multiple goals for the robot to reach use the below script.
+```
+./pick_objects.sh
+```
+* to publish a marker to rviz use the below script.
+```
+./add_marker.sh
+```
+* to simulate a home service robot that picks and drops object between places use the below script.
+```
+./home_service.sh
+```
+## Great we have successfully simulated a home service robot that picks and drops object between places
